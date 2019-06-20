@@ -65,6 +65,9 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
+
+		fmt.Printf("[Debug] Reverse proxy: %s:%d with scheme %s\n", c.String("proxy-host"), c.Int("proxy-port"), c.String("proxy-scheme"))
+
 		reverseProxy := httputil.NewSingleHostReverseProxy(&url.URL{
 			Host:   fmt.Sprintf("%s:%d", c.String("proxy-host"), c.Int("proxy-port")),
 			Scheme: c.String("proxy-scheme"),
