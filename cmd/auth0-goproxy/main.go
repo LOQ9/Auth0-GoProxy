@@ -19,7 +19,7 @@ func main() {
 	app.Flags = []cli.Flag{
 		cli.IntFlag{
 			Name:   "p, port",
-			Value:  80,
+			Value:  8080,
 			EnvVar: "AP_PORT",
 		},
 		cli.StringFlag{
@@ -28,7 +28,7 @@ func main() {
 		},
 		cli.IntFlag{
 			Name:   "proxy-port",
-			Value:  80,
+			Value:  8080,
 			EnvVar: "AP_PROXY_PORT",
 		},
 		cli.StringFlag{

@@ -3,12 +3,13 @@ package proxy
 import (
 	"crypto/md5"
 	"fmt"
-	"github.com/gorilla/sessions"
-	"github.com/zpatrick/rclient"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
 	"time"
+
+	"github.com/gorilla/sessions"
+	"github.com/zpatrick/rclient"
 )
 
 type Config struct {
@@ -58,6 +59,8 @@ func (a *Auth0Proxy) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if code := r.URL.Query().Get("code"); code != "" {
+		fmt.Printf("<Debug> Code received: %s", code)
+
 		a.handleAuth0Callback(w, r, code)
 		return
 	}
@@ -76,17 +79,21 @@ func (a *Auth0Proxy) handleAuth0Redirect(w http.ResponseWriter, r *http.Request)
 		RawQuery: fmt.Sprintf("response_type=code&client_id=%s&redirect_uri=%s&state=%s", a.ClientID, a.RedirectURI, key),
 	}
 
+	fmt.Printf("<Debug> Redirecting to %s", url.String())
+
 	http.Redirect(w, r, url.String(), http.StatusSeeOther)
 }
 
 func (a *Auth0Proxy) handleAuth0Callback(w http.ResponseWriter, r *http.Request, code string) {
 	if err := a.validateCode(code); err != nil {
+		fmt.Printf("<Debug> Code not valid. Error: %s", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	session, err := a.store.Get(r, "auth0-proxy")
 	if err != nil {
+		fmt.Printf("<Debug> Store get error. Error: %s", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -96,6 +103,7 @@ func (a *Auth0Proxy) handleAuth0Callback(w http.ResponseWriter, r *http.Request,
 
 	key := r.URL.Query().Get("state")
 	if originalRequest := a.requests[key]; originalRequest != nil {
+		fmt.Printf("<Debug> Redirecting to %s", originalRequest.URL.String())
 		delete(a.requests, key)
 		http.Redirect(w, r, originalRequest.URL.String(), http.StatusSeeOther)
 		return
