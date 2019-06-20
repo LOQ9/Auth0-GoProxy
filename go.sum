@@ -1,0 +1,12 @@
+github.com/gorilla/context v1.1.1 h1:AWwleXJkX/nhcU9bZSnZoi3h/qGYqQAGhq6zZe/aQW8=
+github.com/gorilla/context v1.1.1/go.mod h1:kBGZzfjB9CEq2AlWe17Uuf7NDRt0dE0s8S51q0aT7Yg=
+github.com/gorilla/securecookie v1.1.1 h1:miw7JPhV+b/lAHSXz4qd/nN9jRiAFV5FwjeKyCS8BvQ=
+github.com/gorilla/securecookie v1.1.1/go.mod h1:ra0sb63/xPlUeL+yeDciTfxMRAA+MP+HVt/4epWDjd4=
+github.com/gorilla/sessions v1.1.3 h1:uXoZdcdA5XdXF3QzuSlheVRUvjl+1rKY7zBXL68L9RU=
+github.com/gorilla/sessions v1.1.3/go.mod h1:8KCfur6+4Mqcc6S0FEfKuN15Vl5MgXW92AE8ovaJD0w=
+github.com/quintilesims/auth0-proxy v0.0.0-20180801203724-22740ca83bb4 h1:oVho2sKOJPHVjOhA2zDJ5oPbBmVcJ6m8UCed51x1/VU=
+github.com/quintilesims/auth0-proxy v0.0.0-20180801203724-22740ca83bb4/go.mod h1:V3/RinmPp4FT+Ndjqq0Cuh7JfevC3ONJQHh/U3mR0E8=
+github.com/urfave/cli v1.20.0 h1:fDqGv3UG/4jbVl/QkFwEdddtEDjh/5Ov6X+0B/3bPaw=
+github.com/urfave/cli v1.20.0/go.mod h1:70zkFmudgCuE/ngEzBv17Jvp/497gISqfk5gWijbERA=
+github.com/zpatrick/rclient v0.0.0-20180829052425-9beeebe8a6ae h1:d6Ue+1GtuWWZmBXtbfPk3q020bv1JjtZfThCci15slU=
+github.com/zpatrick/rclient v0.0.0-20180829052425-9beeebe8a6ae/go.mod h1:vc2KbOmql+7Rw10cIFvmw5n0cId8dz5n5q2XNP3AtCo=
