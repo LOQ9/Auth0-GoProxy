@@ -1,5 +1,7 @@
 # Auth0 Go Proxy
 
+**This repository is no longer maintained. Nowadays there are several zero trust alternatives such as Cloudflare Access, Pomerium, ...**
+
 Sometimes, you want to put a sensitive web application behind a login wall.
 Sometimes, you don't want to write the authentication logic yourself.
 In this repository, we provide a proxy application that authenticates through Auth0.
